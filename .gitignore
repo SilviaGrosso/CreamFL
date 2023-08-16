@@ -3,3 +3,4 @@ wandb/*
 *.log
 apex/*
 data/*
+*.pt
