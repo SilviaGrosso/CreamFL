@@ -3,4 +3,4 @@ wandb/*
 *.log
 apex/*
 data/*
-CreamFL-best_model.pt
+*.pt
