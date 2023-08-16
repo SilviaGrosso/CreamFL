@@ -25,6 +25,7 @@ os.environ['HOME'] + 'data/'
 │   └── cifar-100-python
 ├── flickr30k
 │   └── flickr30k-images
+
 ├── mmdata
 │   ├── MSCOCO
 │   │   └── 2014

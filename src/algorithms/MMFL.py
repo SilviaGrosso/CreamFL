@@ -67,7 +67,7 @@ class MMFL(object):
         self.global_txt_feature = None
         self.distill_index = None
 
-    def set_config(self, img='cifa100', txt='AG_NEWS'):
+    def set_config(self, img='cifar100', txt='AG_NEWS'):
         self.config = parse_config("./src/coco.yaml", strict_cast=False)
         self.config.train.model_save_path = 'model_last_no_prob'
         self.config.train.best_model_save_path = 'model_best_no_prob'

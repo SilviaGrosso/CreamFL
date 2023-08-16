@@ -112,7 +112,7 @@ class F30kCaptionsCap(Dataset):
         caption = data[1]
 
         path = data[0].replace('/data/mmdata/Flick30k/flickr30k-images/',
-                               os.environ['HOME'] + '/data/flickr30k/flickr30k-images/')
+                               os.environ['HOME'] + '/data/flickr30k/flickr30k-images/flickr30k_images/')
         # print(f'path {path}')
 
         img = Image.open(path).convert('RGB')

@@ -60,7 +60,7 @@ def args():
     # === dataloader ===
     parser.add_argument('--dataset', type=str, default='cifar100', choices=['svhn', 'cifar10', 'cifar100'],
                         help='dataset name (default: cifar10)')
-    parser.add_argument('--data_root', type=str, default=os.environ['HOME'] + "/data/")
+    parser.add_argument('--data_root', type=str, default=os.environ['HOME'] + "CreamFL/data/")
     parser.add_argument('--batch_size', type=int, default=64, metavar='N',
                         help='input batch size for training (default: 256)')
     parser.add_argument('--alpha', type=float, default=0.5)

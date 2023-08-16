@@ -1,0 +1,5 @@
+*.pyc 
+wandb/*
+*.log
+apex/*
+data/*
