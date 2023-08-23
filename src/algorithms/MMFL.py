@@ -173,7 +173,12 @@ class MMFL(object):
             print(f"Samples Num: {[len(i.train_loader.dataset) for i in self.mm_local_trainers]}")
 
         self.total_local_trainers = self.img_local_trainers + self.txt_local_trainers + self.mm_local_trainers
-
+##
+        print(f'Local image clients: {self.img_local_trainers}')
+        print(f'Local txt clients: {self.txt_local_trainers}')
+        print(f'Local mm clients: {self.mm_local_trainers}')
+        print(f'Total local trainers: {self.total_local_trainers}')
+##
         for i in range(len(self.total_local_trainers)):
             self.total_local_trainers[i].client_idx = i + 1
 
@@ -266,11 +271,17 @@ class MMFL(object):
                                   prefix=self.engine.eval_prefix)
         rsum = test_scores['test']['n_fold']['i2t']['recall_1'] + test_scores['test']['n_fold']['t2i']['recall_1'] + \
                test_scores['test']['i2t']['recall_1'] + test_scores['test']['t2i']['recall_1']
+##        
         self.wandb.log({"Server rsum_r1": rsum}, step=self.cur_epoch)
         self.wandb.log({"Server n_fold_i2t_r1": test_scores['test']['n_fold']['i2t']['recall_1']}, step=self.cur_epoch)
         self.wandb.log({"Server n_fold_t2i_r1": test_scores['test']['n_fold']['t2i']['recall_1']}, step=self.cur_epoch)
         self.wandb.log({"Server i2t_r1": test_scores['test']['i2t']['recall_1']}, step=self.cur_epoch)
+        self.wandb.log({"Server i2t_r5": test_scores['test']['i2t']['recall_5']}, step=self.cur_epoch)
+        self.wandb.log({"Server i2t_r10": test_scores['test']['i2t']['recall_10']}, step=self.cur_epoch)
         self.wandb.log({"Server t2i_r1": test_scores['test']['t2i']['recall_1']}, step=self.cur_epoch)
+        self.wandb.log({"Server t2i_r5": test_scores['test']['t2i']['recall_5']}, step=self.cur_epoch)
+        self.wandb.log({"Server t2i_r10": test_scores['test']['t2i']['recall_10']}, step=self.cur_epoch)
+##
 
         if self.best_score < rsum:
             best_score = rsum
