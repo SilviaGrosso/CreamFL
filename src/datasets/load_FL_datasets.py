@@ -19,9 +19,9 @@ def get_FL_trainloader(dataset, data_root, num_clients, partition, alpha, batch_
                                               transforms.RandomHorizontalFlip(),
                                               transforms.ToTensor(),
                                               transforms.Normalize(RGBmean['Cifar100'], RGBstdv['Cifar100'])])
-        train_set = datasets.CIFAR100(data_root, train=True, download=True,
+        train_set = datasets.CIFAR100(data_root, train=True, download=False,
                                       transform=data_transforms)
-        test_set = datasets.CIFAR100(data_root, train=False, download=True,
+        test_set = datasets.CIFAR100(data_root, train=False, download=False,
                                      transform=transforms.Compose([
                                          transforms.ToTensor(),
                                          transforms.Normalize(RGBmean['Cifar100'], RGBstdv['Cifar100'])]
